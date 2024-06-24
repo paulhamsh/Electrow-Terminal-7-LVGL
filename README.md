@@ -4,7 +4,7 @@ LVGL examples for the Elecrow Terminal RGB
 ## Elecrow Terminal 7 LVGL Demo build instructions
 
 A lovely ESP32 S3 board.   
-https://www.elecrow.com/esp-terminal-with-esp32-3-5-inch-parallel-480x320-tft-capacitive-touch-display-rgb-by-chip-ili9488.html
+https://www.elecrow.com/esp32-display-7-inch-hmi-display-rgb-tft-lcd-touch-screen-support-lvgl.html
 
 <p align="center">
   <img src="https://github.com/paulhamsh/Electrow-Terminal-7-LVGL/blob/main/Elecrow-Terminal-7.png" width="400" title="Elecrow Terminal">
