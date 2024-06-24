@@ -113,8 +113,8 @@ Comment out the parts of the code using the UI library
 
 */
 ```
-Comment out these functions  ```void lv_example_bar(void)```  and ```void callback1()```     
-
+Comment out these functions  ```void lv_example_bar(void)```  and ```void callback1()``` and ```void touch_calibrate()```     
+Comment out the two lines containing ```lcd.fillScreen(BLACK);```   
 Copy the lv_conf.h from ```Arduino_7inch\Libraries\lv_conf.h``` to ```Arduino\libraries\lvgl\src\lv_conf.h```   
 
 
