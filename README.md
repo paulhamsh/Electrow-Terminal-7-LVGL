@@ -44,15 +44,9 @@ PSRAM:    OPI PSRAM
 Partition Scheme: Huge App (3MB No OTA / 1MB SPIFFS)
 ```
 
-Edit this line:  
-```
-  #define LV_FONT_MONTSERRAT_24 1   
-```
 Copy folders ```Arduino\libraries\lvgl\demos``` and ```Arduino\libraries\lvgl\examples```  to ```lvgl\src```   
 
-Also: hold down the Boot button and press the RESET button to initiate firmware download mode   
-
-There is a pre-build lv_conf.h in the v8 folder.   
+There is a pre-built lv_conf.h in the v8 folder.   
 
 ## Build LVGL demos with v9.1.0
 
