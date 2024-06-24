@@ -29,6 +29,92 @@ Get the Arduino_7inch.zip file from here: https://www.elecrow.com/download/produ
 
 Make a folder and copy over ```HMI-7``` into it  (for board type  WZ8048C070 - if a different board type read the README.txt)   
 
+Comment out the parts of the code using the UI library    
+```
+//UI
+//#include <ui.h>
+```
+
+```
+
+/*
+  ui_init();//Boot UI
+  while (1)
+  {
+    
+    if (goto_widget_flag == 1)//Go to widget
+    {
+      if (ticker1.active() == true)
+      {
+        ticker1.detach();
+      }
+      goto_widget_flag = 0;
+      delay(300);
+     break;
+    }
+
+    if (goto_widget_flag == 3)//Go to the touch screen and close the progress bar thread first
+    {
+      bar_flag = 0; //Stop progress bar sign
+      if (ticker1.active() == true)
+      {
+        ticker1.detach();
+      }
+      if (first_flag == 0 || first_flag == 1)
+      {
+        label_xy();
+        first_flag = 2;
+      }
+      if (zero_clean == 1)
+      {
+        touch_last_x = 0;
+        touch_last_y = 0;
+        zero_clean = 0;
+     }
+      lv_label_set_text(ui_Label, "Touch Adjust:");
+      lv_label_set_text_fmt(ui_Label3, "%d  %d", touch_last_x, touch_last_y); //Display touch information
+    }
+
+    if (goto_widget_flag == 4)//触摸界面返回到Menu界面,使进度条清零重启
+    {
+
+      val = 100;
+      delay(100);
+      ticker1.attach_ms(20, callback1);//每20ms调用callback1
+      goto_widget_flag = 0;
+    }
+
+    if (goto_widget_flag == 5) //Trigger Calibration Signal
+    {
+
+      lv_scr_load_anim(ui_touch_calibrate, LV_SCR_LOAD_ANIM_NONE, 0, 0, false);
+      lv_timer_handler();
+      lv_timer_handler();
+      delay(100);
+     touch_calibrate();//Touch Calibration
+      lv_scr_load_anim(ui_TOUCH, LV_SCR_LOAD_ANIM_NONE, 0, 0, false);
+      lv_timer_handler();
+      goto_widget_flag = 3; //Access to the touch screen logo
+      touch_last_x = 0;
+      touch_last_y = 0;
+    }
+
+    if (bar_flag == 6)//Runs the progress bar once when you first boot into the Menu screen, then stops running after that
+    {
+      if (first_flag == 0)
+      {
+       lv_example_bar();
+        ticker1.attach_ms(20, callback1);//每20ms调用callback1
+        first_flag = 1;
+      }
+    }
+
+    lv_timer_handler();
+  }
+
+*/
+```
+
 Copy the lv_conf.h from ```Arduino_7inch\Libraries\lv_conf.h``` to ```Arduino\libraries\lvgl\src\lv_conf.h```   
 
 
