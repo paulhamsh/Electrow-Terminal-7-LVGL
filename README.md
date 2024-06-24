@@ -10,6 +10,9 @@ https://www.elecrow.com/esp-terminal-with-esp32-3-5-inch-parallel-480x320-tft-ca
   <img src="https://github.com/paulhamsh/Electrow-Terminal-7-LVGL/blob/main/Elecrow-Terminal-7.png" width="400" title="Elecrow Terminal">
 </p>   
 
+The wiki is here: https://www.elecrow.com/wiki/esp32-display-702727-intelligent-touch-screen-wi-fi26ble-800480-hmi-display.html  
+
+
 ## Build LVGL demos with v8.4.0    
 
 Board manager: ESP32 S3 Dev Module   
