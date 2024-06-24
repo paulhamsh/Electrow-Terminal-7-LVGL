@@ -26,10 +26,14 @@ Install Arduino libraries:
 ```
 Get the Arduino_7inch.zip file from here: https://www.elecrow.com/download/product/DLC35010R/Source_Code.zip     
 
-Make a folder and copy over ```"ESP Terminal 3.5inch RGB code\LVGL_RGB_"``` into it   
-Rename the ```LVGL_RGB_``` folder and the ```LVGL_RGB_.ino``` files to something more meaningful   
+Make a folder and copy over ```HMI-7``` into it  (for board type  WZ8048C070 - if a different board type read the README.txt)   
 
-Copy the lv_conf.h from ```Source Code\Libraries\lvgl.h``` to ```Arduino\libraries\lvgl\src```   
+Copy the lv_conf.h from ```Arduino_7inch\Libraries\lv_conf.h``` to ```Arduino\libraries\lvgl\src\lv_conf.h```   
+
+
+
+
+
 Edit this line:  
 ```
   #define LV_FONT_MONTSERRAT_24 1   
