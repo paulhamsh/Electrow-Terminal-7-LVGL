@@ -23,6 +23,7 @@ Install Arduino libraries:
 ```
   lvgl           version 8.4.0
   LoyvyanGFX     version 1.1.16
+  TAMC-GT911     version 1.0.2
 ```
 Get the Arduino_7inch.zip file from here: https://www.elecrow.com/download/product/DLC35010R/Source_Code.zip     
 
