@@ -25,7 +25,7 @@ Install Arduino libraries:
   LoyvyanGFX     version 1.1.16
   TAMC-GT911     version 1.0.2
 ```
-Get the Arduino_7inch.zip file from here: https://www.elecrow.com/download/product/DLC35010R/Source_Code.zip     
+Get the Arduino_7inch.zip file from here: https://www.elecrow.com/download/product/ESP32_Display/7.0inch/Arduino_7inch.zip    
 
 Make a folder and copy over ```HMI-7``` into it  (for board type  WZ8048C070 - if a different board type read the README.txt)   
 
