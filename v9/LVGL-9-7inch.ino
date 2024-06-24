@@ -7,6 +7,15 @@
 #include <lgfx/v1/platforms/esp32s3/Panel_RGB.hpp>
 #include <lgfx/v1/platforms/esp32s3/Bus_RGB.hpp>
 
+
+
+
+static uint32_t my_tick_function(void) {
+  return millis();
+}
+
+
+
 // Define a class named LGFX, inheriting from the LGFX_Device class.
 class LGFX : public lgfx::LGFX_Device {
 public:
@@ -101,6 +110,7 @@ static lv_disp_drv_t disp_drv;
 #define TFT_BL 2
 
 /* Display flushing */
+/*
 void my_disp_flush(lv_disp_drv_t *disp, const lv_area_t *area, lv_color_t *color_p)
 {
   uint32_t w = (area->x2 - area->x1 + 1);
@@ -113,8 +123,21 @@ void my_disp_flush(lv_disp_drv_t *disp, const lv_area_t *area, lv_color_t *color
 #endif
   lv_disp_flush_ready(disp);
 }
+*/
+void my_disp_flush(lv_display_t *disp, const lv_area_t *area, uint8_t *px_map)
+{
+  uint32_t w = ( area->x2 - area->x1 + 1 );
+  uint32_t h = ( area->y2 - area->y1 + 1 );
 
-void my_touchpad_read(lv_indev_drv_t *indev_driver, lv_indev_data_t *data)
+  lv_draw_sw_rgb565_swap(px_map, w * h);
+  tft.pushImage(area->x1, area->y1, w, h, (uint16_t *)px_map);
+
+  lv_disp_flush_ready(disp);
+}
+
+
+//void my_touchpad_read(lv_indev_drv_t *indev_driver, lv_indev_data_t *data)
+void my_touchpad_read( lv_indev_t * indev_driver, lv_indev_data_t * data )
 {
   if (touch_touched())
   {
@@ -133,6 +156,15 @@ void my_touchpad_read(lv_indev_drv_t *indev_driver, lv_indev_data_t *data)
   }
 }
 
+static const uint16_t screenWidth  = 800;
+static const uint16_t screenHeight = 480;
+static const int buf_size = screenWidth * screenHeight * sizeof(lv_color_t) / 10;
+static uint16_t buf[buf_size];
+
+lv_display_t *disp;
+lv_indev_t   *indev;
+
+
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(115200); // Init Display
@@ -143,26 +175,45 @@ void setup() {
 
   lv_init();
   touch_init();
-  screenWidth = lcd.width();
-  screenHeight = lcd.height();
 
+  //screenWidth = lcd.width();
+  //screenHeight = lcd.height();
+
+
+  lv_tick_set_cb(my_tick_function);
+
+  /*
   lv_disp_draw_buf_init(&draw_buf, disp_draw_buf, NULL, screenWidth * screenHeight / 10);
 
-  /* Initialize the display */
+  // Initialize the display 
   lv_disp_drv_init(&disp_drv);
-  /* Change the following line to your display resolution */
+  // Change the following line to your display resolution 
   disp_drv.hor_res = screenWidth;
   disp_drv.ver_res = screenHeight;
   disp_drv.flush_cb = my_disp_flush;
   disp_drv.draw_buf = &draw_buf;
   lv_disp_drv_register(&disp_drv);
 
-  /* Initialize the (dummy) input device driver */
+  /* Initialize the (dummy) input device driver 
   static lv_indev_drv_t indev_drv;
   lv_indev_drv_init(&indev_drv);
   indev_drv.type = LV_INDEV_TYPE_POINTER;
   indev_drv.read_cb = my_touchpad_read;
   lv_indev_drv_register(&indev_drv);
+  */
+
+  disp = lv_display_create(screenWidth, screenHeight);
+  lv_display_set_flush_cb(disp, my_disp_flush);
+  //lv_display_set_buffers(disp, buf1, buf2, buf_size, LV_DISPLAY_RENDER_MODE_FULL);
+  lv_display_set_buffers(disp, buf, NULL, buf_size, LV_DISPLAY_RENDER_MODE_PARTIAL);
+
+  indev = lv_indev_create();
+  lv_indev_set_type(indev, LV_INDEV_TYPE_POINTER);
+  lv_indev_set_read_cb(indev, my_touchpad_read);
+
+
+
+
 #ifdef TFT_BL
   pinMode(TFT_BL, OUTPUT);
   digitalWrite(TFT_BL, HIGH);
