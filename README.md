@@ -21,7 +21,7 @@ Install Arduino libraries:
   lvgl           version 8.4.0
   LoyvyanGFX     version 1.1.16
 ```
-Get the Soruce Code.zip file from here: https://www.elecrow.com/download/product/DLC35010R/Source_Code.zip   
+Get the Arduino_7inch.zip file from here: https://www.elecrow.com/download/product/DLC35010R/Source_Code.zip     
 
 Make a folder and copy over ```"ESP Terminal 3.5inch RGB code\LVGL_RGB_"``` into it   
 Rename the ```LVGL_RGB_``` folder and the ```LVGL_RGB_.ino``` files to something more meaningful   
