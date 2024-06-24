@@ -13,7 +13,7 @@ https://www.elecrow.com/esp-terminal-with-esp32-3-5-inch-parallel-480x320-tft-ca
 The wiki is here: https://www.elecrow.com/wiki/esp32-display-702727-intelligent-touch-screen-wi-fi26ble-800480-hmi-display.html  
 
 
-## Build LVGL demos with v8.4.0    
+## Build LVGL demos with v8.4.0 and standard code  
 
 Board manager: ESP32 S3 Dev Module   
 esp32 version 2.0.16   
@@ -47,6 +47,31 @@ Partition Scheme: Huge App (3MB No OTA / 1MB SPIFFS)
 Copy folders ```Arduino\libraries\lvgl\demos``` and ```Arduino\libraries\lvgl\examples```  to ```lvgl\src```   
 
 There is a pre-built lv_conf.h in the v8 folder.   
+
+## Build LVGL demos with v8.4.0 and code in v8 folder  
+
+Board manager: ESP32 S3 Dev Module   
+esp32 version 2.0.16   
+Arduino IDE:   2.3.2   
+
+Install Arduino libraries:
+```
+  lvgl           version 8.4.0
+  LoyvyanGFX     version 1.1.16
+  TAMC-GT911     version 1.0.2
+```
+Get the code in the v8 folder, in a folder named ```LVGL-8-7inch```   
+
+Copy the lv_conf.h to ```Arduino\libraries\lvgl\src\lv_conf.h```   
+
+Ensure the Arduino settings are:
+```
+PSRAM:    OPI PSRAM
+Partition Scheme: Huge App (3MB No OTA / 1MB SPIFFS)
+```
+Copy folders ```Arduino\libraries\lvgl\demos``` and ```Arduino\libraries\lvgl\examples```  to ```lvgl\src```   
+
+Compile and run    
 
 ## Build LVGL demos with v9.1.0
 
