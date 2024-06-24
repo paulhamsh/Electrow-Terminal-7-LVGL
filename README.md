@@ -8,7 +8,7 @@ https://www.elecrow.com/esp-terminal-with-esp32-3-5-inch-parallel-480x320-tft-ca
 
 <p align="center">
   <img src="https://github.com/paulhamsh/Electrow-Terminal-7-LVGL/blob/main/Elecrow%20Terminal%207.png" width="400" title="Elecrow Terminal">
-</p>
+</p>   
 
 ## Build LVGL demos with v8.4.0    
 
