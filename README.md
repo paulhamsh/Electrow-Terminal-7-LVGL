@@ -27,7 +27,7 @@ Install Arduino libraries:
 ```
 Get the Arduino_7inch.zip file from here: https://www.elecrow.com/download/product/ESP32_Display/7.0inch/Arduino_7inch.zip    
 
-Make a folder and copy over ```HMI-7``` into it  (for board type  WZ8048C070 - if a different board type read the README.txt)   
+Make a folder and copy over the folder ```HMI-7``` into it  (for board type  WZ8048C070 - if a different board type read the README.txt)   
 
 Copy the UI folder from the zip file ```Arduino_7inch\libraries\UI``` to ```Arduino\libraries```
 
@@ -74,6 +74,6 @@ Edit
 #define LV_USE_DEMO_WIDGETS 1
 #define LV_FONT_MONTSERRAT_24 1
 ```
-Use the LGVL_V9_RGB.ino in the v9 folder       
+Use the LGVL_V9_7inch.ino in the v9 folder       
 There is a pre-build lv_conf.h in the v9 folder.   
 
