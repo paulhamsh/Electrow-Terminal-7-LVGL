@@ -36,7 +36,6 @@ Comment out the parts of the code using the UI library
 ```
 
 ```
-
 /*
   ui_init();//Boot UI
   while (1)
@@ -75,12 +74,12 @@ Comment out the parts of the code using the UI library
       lv_label_set_text_fmt(ui_Label3, "%d  %d", touch_last_x, touch_last_y); //Display touch information
     }
 
-    if (goto_widget_flag == 4)//触摸界面返回到Menu界面,使进度条清零重启
+    if (goto_widget_flag == 4)
     {
 
       val = 100;
       delay(100);
-      ticker1.attach_ms(20, callback1);//每20ms调用callback1
+      ticker1.attach_ms(20, callback1);
       goto_widget_flag = 0;
     }
 
@@ -104,7 +103,7 @@ Comment out the parts of the code using the UI library
       if (first_flag == 0)
       {
        lv_example_bar();
-        ticker1.attach_ms(20, callback1);//每20ms调用callback1
+        ticker1.attach_ms(20, callback1);
         first_flag = 1;
       }
     }
@@ -114,6 +113,7 @@ Comment out the parts of the code using the UI library
 
 */
 ```
+Comment out these functions  ```void lv_example_bar(void)```  and ```void callback1()```     
 
 Copy the lv_conf.h from ```Arduino_7inch\Libraries\lv_conf.h``` to ```Arduino\libraries\lvgl\src\lv_conf.h```   
 
