@@ -87,12 +87,15 @@ Install Arduino libraries:
 
 Copy ```Arduino\libraries\lvgl\lv_conf_template.h``` to ```src\lv_conf.h```   
 Copy folders ```Arduino\libraries\lvgl\demos``` and ```Arduino\libraries\lvgl\examples```  to ```Arduino\libraries\lvgl\src```     
-Edit
+
+Edit ```lv_conf.h```   
 ```
 #if 1 /*Set it to "1" to enable content*/
 #define LV_USE_DEMO_WIDGETS 1
 #define LV_FONT_MONTSERRAT_24 1
 ```
-Use the LGVL_V9_7inch.ino in the v9 folder       
-There is a pre-build lv_conf.h in the v9 folder.   
+
+Use the LGVL_V9_7inch.ino in the v9 folder   
+
+There is a pre-built lv_conf.h in the v9 folder.   
 
