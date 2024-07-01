@@ -135,8 +135,8 @@ void my_touchpad_read( lv_indev_t * indev_driver, lv_indev_data_t * data )
 static const uint16_t screenWidth  = 800;
 static const uint16_t screenHeight = 480;
 
-static const int buf_size_in_bytes = screenWidth * screenHeight * sizeof(lv_color_t) / 20;
-static uint16_t buf[buf_size_in_bytes];
+static const int buf_size_in_bytes = screenWidth * screenHeight * sizeof(lv_color_t) / 10;
+static uint16_t buf[buf_size_in_bytes / 2];
 
 
 lv_display_t *disp;
